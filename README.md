@@ -26,6 +26,12 @@ If you need to install or upgrade `yq`, follow the instructions on the [official
 OR
 
 ```sh
+snap install yq
+```
+
+OR
+
+```sh
 wget https://github.com/mikefarah/yq/releases/download/v4.42.1/yq_linux_amd64 -O /usr/bin/yq && chmod +x /usr/bin/yq
 ```
 
