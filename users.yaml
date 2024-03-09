@@ -1,0 +1,10 @@
+users:
+  ftp_hello:
+    password: "password"
+    directory: "/home/hello"
+    # later we will add a web_expose and web_path
+    web_expose: "/hello"
+    web_path: "/home/hello/images"
+  ftp_world:
+    password: "password"
+    directory: "/home/world"
