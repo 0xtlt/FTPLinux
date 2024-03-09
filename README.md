@@ -1,6 +1,6 @@
-# FTPLinux
+# EasyFTP
 
-FTPLinux is a streamlined solution designed for managing FTP users on Linux systems. It leverages `yq` for handling YAML configurations, offering a straightforward way to manage user accounts and settings.
+EasyFTP is a streamlined solution designed for managing FTP users on Linux systems. It leverages `yq` for handling YAML configurations, offering a straightforward way to manage user accounts and settings.
 
 ## Prerequisites
 
@@ -37,11 +37,11 @@ wget https://github.com/mikefarah/yq/releases/download/v4.42.1/yq_linux_amd64 -O
 
 2. **Clone the Repository**
 
-If applicable, clone the repository where `FTPLinux` is hosted to access the configuration files and scripts.
+If applicable, clone the repository where `EasyFTP` is hosted to access the configuration files and scripts.
 
 ```sh
-git clone https://github.com/0xtlt/FTPLinux.git
-cd FTPLinux
+git clone https://github.com/0xtlt/easyftp.git
+cd easyftp
 ```
 
 3. **Configure FTP Users**
@@ -70,6 +70,22 @@ Execute the `apply.bash` script to apply the configurations specified in `users.
 
 - **`users.yaml`**: This YAML file contains the configuration for each FTP user. Adjust this file to manage FTP user settings.
 
+## If your server doesn't support authentication with a password
+
+Go to `/etc/ssh/sshd_config`
+Add the following lines at the end of the file:
+
+```sh
+Match User ftp_*
+  ForceCommand internal-sftp
+  PasswordAuthentication yes
+  ChrootDirectory %h
+  PermitTunnel no
+  AllowAgentForwarding no
+  AllowTcpForwarding no
+  X11Forwarding no
+```
+
 ## Contribution
 
-Your contributions are welcome! If you'd like to improve FTPLinux or suggest features, please feel free to fork the repository, make your changes, and submit a pull request.
+Your contributions are welcome! If you'd like to improve EasyFTP or suggest features, please feel free to fork the repository, make your changes, and submit a pull request.
